@@ -86,8 +86,9 @@ class Dog
     sql = <<-SQL 
       SELECT * FROM dogs 
       WHERE id = ?
+      LIMIT 1
     SQL
-    DB[:conn].execute(sql).map do |row|
+    row = DB[:conn].execute(sql, id)[0]
       self.new_from_db(row)
     end 
   end 
