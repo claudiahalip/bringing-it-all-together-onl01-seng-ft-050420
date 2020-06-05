@@ -80,7 +80,7 @@ class Dog
     self.new(a_hash).save
   end
   
-  def find_by_id (id)
+  def self.find_by_id (id)
     sql = <<-SQL 
     SELECT * FROM dogs 
     WHERE id = ?
@@ -92,7 +92,7 @@ class Dog
   end 
   
   
-  def find_or_create_by(name:, breed:) 
+  def self.find_or_create_by(name:, breed:) 
     sql = <<-SQL
       SELECT * FROM 
       WHERE  name = ? AND breed = ?
